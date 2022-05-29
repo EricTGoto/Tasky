@@ -1,7 +1,8 @@
 import React from 'react';
 import uniqid from 'uniqid';
-import Tasks from './components/Tasks';
 import './style.css';
+import Tasks from './components/Tasks';
+import Header from './components/Header';
 
 function App() {
   const [task, setTask] = React.useState([]);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <form onSubmit={handleSubmit}>
         <input
           name="taskInput"
@@ -38,8 +40,8 @@ function App() {
           value={input}
         />
         <button type="submit">Submit</button>
-        <Tasks tasks={task} deleteFunction={deleteTask} />
       </form>
+      <Tasks tasks={task} deleteFunction={deleteTask} />
     </div>
   );
 }

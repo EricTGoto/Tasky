@@ -1,6 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .app {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .task {
@@ -9,4 +14,47 @@
 
 .task-title {
     font-size: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    width: 100vw;
+    background-color: cornflowerblue;
+}
+
+.header-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.hamburger {
+    height: 30px;
+    width: 30px;
+}
+
+
+.tasky {
+    font-size: 25px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 30px;
+}
+
+.plus {
+    height: 30px;
+    width: 30px;
+}
+
+.help {
+    height: 24px;
+    width: 24px;
 }

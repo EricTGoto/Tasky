@@ -6,3 +6,7 @@
 .task {
     border: black 1px solid;
 }
+
+.task-title {
+    font-size: 20px;
+}

@@ -18,19 +18,20 @@ function Tasks({ tasks, deleteFunction }) {
     }
   }
 
-  function test(e) {
+  function handleClick(e) {
     console.log(e);
   }
 
-  function test2(e) {
+  function handleKeyPress(e) {
     console.log(e);
   }
 
   const taskList = tasks.map((task) => {
     return (
       <div key={task.taskID} className="task">
-        <p contentEditable="false" role="presentation" className="task-title" onClick={test} onKeyDown={test2}>{task.taskText}</p>
+        <p contentEditable="false" role="presentation" className="task-title" onClick={handleClick} onKeyDown={handleKeyPress}>{task.taskText}</p>
         <p contentEditable="false" role="presentation" className="task-description">{task.taskText}</p>
+        <p>Date</p>
         <button type="button" onClick={handleEdit}>Edit</button>
         <button type="button" id={task.taskID} onClick={deleteFunction}>Delete</button>
       </div>

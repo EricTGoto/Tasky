@@ -25,6 +25,27 @@
     background-color: cornflowerblue;
 }
 
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    transform: translateX(-200px);
+    background-color: cornflowerblue;
+}
+
+
+.sidebar.show {
+    transform: translateX(0px);
+    transition: transform 250ms ease-in-out;
+}
+
+.sidebar.hide {
+    transform: translateX(-200px);
+    transition: transform 250ms ease-in-out;
+}
+
 .header-left {
     display: flex;
     gap: 20px;
@@ -35,11 +56,13 @@
 .hamburger {
     height: 30px;
     width: 30px;
+    z-index: 2;
 }
 
 
 .tasky {
     font-size: 25px;
+    z-index: 2;
 }
 
 .header-right {

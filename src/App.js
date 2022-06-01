@@ -3,10 +3,12 @@ import uniqid from 'uniqid';
 import './style.css';
 import Tasks from './components/Tasks';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [task, setTask] = React.useState([]);
   const [input, setInput] = React.useState('');
+  const [showSidebar, setShowSidebar] = React.useState(false);
 
   function createTask() {
     return ({
@@ -32,7 +34,8 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header setShowSidebar={setShowSidebar} />
+      <Sidebar show={showSidebar} />
       <form onSubmit={handleSubmit}>
         <input
           name="taskInput"

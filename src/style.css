@@ -22,6 +22,7 @@
     align-items: center;
     height: 45px;
     width: 100vw;
+    font-family: 'Merriweather', serif;
     background-color: cornflowerblue;
 }
 
@@ -34,6 +35,8 @@
     padding-top: 45px;
     transform: translateX(-200px);
     background-color: cornflowerblue;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .sidebar.show {

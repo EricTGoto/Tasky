@@ -31,10 +31,10 @@
     top: 0;
     width: 200px;
     height: 100vh;
+    padding-top: 45px;
     transform: translateX(-200px);
     background-color: cornflowerblue;
 }
-
 
 .sidebar.show {
     transform: translateX(0px);
@@ -44,6 +44,19 @@
 .sidebar.hide {
     transform: translateX(-200px);
     transition: transform 250ms ease-in-out;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    background-color: cornflowerblue;
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.sidebar-item:hover {
+    filter: brightness(1.2);
 }
 
 .header-left {
@@ -58,7 +71,6 @@
     width: 30px;
     z-index: 2;
 }
-
 
 .tasky {
     font-size: 25px;

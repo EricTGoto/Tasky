@@ -5,7 +5,7 @@ import uniqid from 'uniqid';
 function TaskForm({ show, setTask }) {
   const [input, setInput] = React.useState('');
   React.useEffect(() => {
-    const taskContainer = document.querySelector('.task-container');
+    const taskContainer = document.querySelector('.task-form-container');
     show ? taskContainer.style.display = 'flex' : taskContainer.style.display = 'none';
   }, [show]);
 
@@ -35,7 +35,7 @@ function TaskForm({ show, setTask }) {
   }
 
   return (
-    <div className="task-container" onClick={closeForm} role="presentation">
+    <div className="task-form-container" onClick={closeForm} role="presentation">
       <div className="task-form" onClick={stopPropagation} role="presentation">
         <form onSubmit={handleSubmit}>
           <input

@@ -21,17 +21,11 @@ function App() {
   return (
     <div className="app">
       <TaskForm setShowMenus={setShowMenus} setTask={setTask} show={showMenus.taskForm} />
-      <Header setShowMenus={setShowMenus} />
       <Sidebar show={showMenus.sidebar} />
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          name="taskInput"
-          onChange={handleChange}
-          value={input}
-        />
-        <button type="submit">Submit</button>
-      </form> */}
-      <Tasks tasks={task} deleteFunction={deleteTask} />
+      <div className="main-elements">
+        <Header setShowMenus={setShowMenus} />
+        <Tasks tasks={task} deleteFunction={deleteTask} />
+      </div>
     </div>
   );
 }

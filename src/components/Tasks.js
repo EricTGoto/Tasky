@@ -38,8 +38,10 @@ function Tasks({ tasks, deleteFunction }) {
     );
   });
   return (
-    <div>
-      {taskList}
+    <div className="task-container">
+      <div className="tasks">
+        {taskList}
+      </div>
     </div>
   );
 }

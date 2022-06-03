@@ -25,9 +25,18 @@ function TaskForm({ show, setTask }) {
     setTask((prevTask) => [...prevTask, createTask()]);
   }
 
+  function closeForm(e) {
+    const formModal = e.target;
+    formModal.style.display = 'none';
+  }
+
+  function stopPropagation(e) {
+    e.stopPropagation();
+  }
+
   return (
-    <div className="task-container">
-      <div className="task-form">
+    <div className="task-container" onClick={closeForm} role="presentation">
+      <div className="task-form" onClick={stopPropagation} role="presentation">
         <form onSubmit={handleSubmit}>
           <input
             name="taskInput"

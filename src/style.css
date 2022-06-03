@@ -16,6 +16,20 @@
     font-size: 20px;
 }
 
+.task-container {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+
+}
+
 .header {
     display: flex;
     justify-content: space-between;

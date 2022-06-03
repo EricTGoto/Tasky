@@ -1,21 +1,16 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import './style.css';
 import Tasks from './components/Tasks';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import TaskForm from './components/TaskForm';
 
 function App() {
   const [task, setTask] = React.useState([]);
-  const [input, setInput] = React.useState('');
-  const [showSidebar, setShowSidebar] = React.useState(false);
-
-  function createTask() {
-    return ({
-      taskText: input,
-      taskID: uniqid(),
-    });
-  }
+  const [showMenus, setShowMenus] = React.useState({
+    sidebar: false,
+    taskForm: false,
+  });
 
   function deleteTask(event) {
     setTask((prevTask) => prevTask.filter(
@@ -23,27 +18,19 @@ function App() {
     ));
   }
 
-  function handleChange(e) {
-    setInput(() => e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setTask((prevTask) => [...prevTask, createTask()]);
-  }
-
   return (
     <div className="app">
-      <Header setShowSidebar={setShowSidebar} />
-      <Sidebar show={showSidebar} />
-      <form onSubmit={handleSubmit}>
+      <TaskForm setShowMenus={setShowMenus} setTask={setTask} show={showMenus.taskForm} />
+      <Header setShowMenus={setShowMenus} />
+      <Sidebar show={showMenus.sidebar} />
+      {/* <form onSubmit={handleSubmit}>
         <input
           name="taskInput"
           onChange={handleChange}
           value={input}
         />
         <button type="submit">Submit</button>
-      </form>
+      </form> */}
       <Tasks tasks={task} deleteFunction={deleteTask} />
     </div>
   );

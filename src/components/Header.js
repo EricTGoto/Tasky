@@ -3,13 +3,23 @@ import hamburger from '../images/menu.svg';
 import plus from '../images/plus.svg';
 import help from '../images/help.svg';
 
-function Header({ setShowSidebar }) {
-  function openForm(e) {
-    console.log(e);
+function Header({ setShowMenus }) {
+  function toggleSidebar() {
+    setShowMenus((prevShowMenus) => {
+      return {
+        ...prevShowMenus,
+        sidebar: !prevShowMenus.sidebar,
+      };
+    });
   }
 
-  function toggleSidebar() {
-    setShowSidebar((prevSidebar) => !prevSidebar);
+  function openForm() {
+    setShowMenus((prevShowMenus) => {
+      return {
+        ...prevShowMenus,
+        taskForm: !prevShowMenus.taskForm,
+      };
+    });
   }
 
   return (

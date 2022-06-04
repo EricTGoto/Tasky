@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Tasks({ tasks, deleteFunction }) {
+function Tasks({ tasks, deleteFunction, sidebarShowing }) {
   function handleEdit(e) {
     // if contenteditable is true then turn it off and vice versa
     const { target } = e;
@@ -17,6 +17,13 @@ function Tasks({ tasks, deleteFunction }) {
       descriptionElement.setAttribute('contenteditable', 'true');
     }
   }
+
+  const taskContainerSize = sidebarShowing ? '2' : '1 / 3';
+
+  React.useEffect(() => {
+    const taskContainer = document.querySelector('.task-container');
+    taskContainer.style.gridColumn = taskContainerSize;
+  }, [sidebarShowing]);
 
   function handleClick(e) {
     console.log(e);

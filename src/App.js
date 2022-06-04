@@ -8,7 +8,7 @@ import TaskForm from './components/TaskForm';
 function App() {
   const [task, setTask] = React.useState([]);
   const [showMenus, setShowMenus] = React.useState({
-    sidebar: false,
+    sidebar: true,
     taskForm: false,
   });
 
@@ -24,7 +24,7 @@ function App() {
       <Sidebar show={showMenus.sidebar} />
       <div className="main-elements">
         <Header setShowMenus={setShowMenus} />
-        <Tasks tasks={task} deleteFunction={deleteTask} />
+        <Tasks tasks={task} deleteFunction={deleteTask} sidebarShowing={showMenus.sidebar} />
       </div>
     </div>
   );

@@ -1,20 +1,19 @@
 import React from 'react';
+import trash from '../images/trash.svg';
+import edit from '../images/edit.svg';
 
 function Tasks({ tasks, deleteFunction, sidebarShowing }) {
   function handleEdit(e) {
     // if contenteditable is true then turn it off and vice versa
     const { target } = e;
     const titleElement = target.parentElement.firstChild;
-    const descriptionElement = titleElement.nextSibling;
 
     const isEditable = titleElement.getAttribute('contenteditable'); // string
 
     if (isEditable === 'true') {
       titleElement.setAttribute('contenteditable', 'false');
-      descriptionElement.setAttribute('contenteditable', 'false');
     } else {
       titleElement.setAttribute('contenteditable', 'true');
-      descriptionElement.setAttribute('contenteditable', 'true');
     }
   }
 
@@ -37,10 +36,11 @@ function Tasks({ tasks, deleteFunction, sidebarShowing }) {
     return (
       <div key={task.taskID} className="task">
         <p contentEditable="false" role="presentation" className="task-title" onClick={handleClick} onKeyDown={handleKeyPress}>{task.taskText}</p>
-        <p contentEditable="false" role="presentation" className="task-description">{task.taskText}</p>
-        <p>Date</p>
-        <button type="button" onClick={handleEdit}>Edit</button>
-        <button type="button" id={task.taskID} onClick={deleteFunction}>Delete</button>
+        <div className="task-right">
+          <p>Date</p>
+          <input type="image" src={edit} onClick={handleEdit} alt="edit" />
+          <input type="image" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
+        </div>
       </div>
     );
   });

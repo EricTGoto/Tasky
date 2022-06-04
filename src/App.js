@@ -1,12 +1,13 @@
 import React from 'react';
 import './style.css';
+import uniqid from 'uniqid';
 import Tasks from './components/Tasks';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import TaskForm from './components/TaskForm';
 
 function App() {
-  const [task, setTask] = React.useState([]);
+  const [task, setTask] = React.useState([{ taskText: 'test 1', taskID: uniqid() }, { taskText: 'test 2', taskID: uniqid() }]);
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
     taskForm: false,

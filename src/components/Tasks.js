@@ -29,7 +29,7 @@ function Tasks({ tasks, deleteFunction, sidebarShowing }) {
       <div key={task.taskID} className="task">
         <p contentEditable={editable} role="presentation" className="task-title">{task.taskText}</p>
         <div className="task-right">
-          <p>Date</p>
+          <p className="task-date">Date</p>
           <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
           <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
         </div>

@@ -55,10 +55,16 @@ body, #root, .app, .main-elements {
 
 .task-right {
     display: flex;
+    align-items: center;
+}
+
+.task-date {
+    margin-right: 16px;
 }
 
 .task-button {
     width: 20px;
+    margin-right: 3px;
 }
 
 .task-button:hover{

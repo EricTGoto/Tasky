@@ -57,6 +57,15 @@ body, #root, .app, .main-elements {
     display: flex;
 }
 
+.task-button {
+    width: 20px;
+}
+
+.task-button:hover{
+    width: 21px;
+    transition: width 100ms;
+}
+
 .task-form-container {
     position: fixed;
     display: none;

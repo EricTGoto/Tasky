@@ -184,5 +184,6 @@ body, #root, .app, .main-elements {
 
 .sidebar-item:hover {
     filter: brightness(1.2);
+    cursor: pointer;
 }
 

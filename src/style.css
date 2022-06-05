@@ -145,9 +145,36 @@ body, #root, .app, .main-elements {
 }
 
 .task-form {
+    position: relative;
+    border-radius: 10px;
     background-color: white;
-    width: 300px;
+    width: 500px;
     height: 300px;
+}
+
+.form-input {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    box-sizing: border-box;
+    width: 450px;
+    font-size: 16px;
+    appearance: none;
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-description {
+    height: 175px;
+}
+
+.submit-button {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
 }
 
 .sidebar {

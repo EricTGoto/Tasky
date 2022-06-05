@@ -27,7 +27,7 @@ function Tasks({ tasks, deleteFunction, sidebarShowing }) {
   const taskList = tasks.map((task) => {
     return (
       <div key={task.taskID} className="task">
-        <p contentEditable={editable} role="presentation" className="task-title">{task.taskText}</p>
+        <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
         <div className="task-right">
           <p className="task-date">Date</p>
           <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />

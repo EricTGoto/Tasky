@@ -3,10 +3,10 @@ import React from 'react';
 import uniqid from 'uniqid';
 
 function TaskForm({ show, setTask }) {
-  // const [input, setInput] = React.useState('');
   const [taskInput, setTaskInput] = React.useState({
     title: '',
     description: '',
+    date: '',
   });
 
   React.useEffect(() => {
@@ -24,10 +24,12 @@ function TaskForm({ show, setTask }) {
     });
   }
 
+  // creates an individual task, remember to modify this when the task data structure changes
   function createTask() {
     return ({
       taskTitle: taskInput.title,
       taskID: uniqid(),
+      date: taskInput.date,
     });
   }
 
@@ -45,6 +47,16 @@ function TaskForm({ show, setTask }) {
     e.stopPropagation();
   }
 
+  function captureDateChange(e) {
+    const { name, value } = e.target;
+    setTaskInput((prevtaskInput) => {
+      return ({
+        ...prevtaskInput,
+        [name]: value,
+      });
+    });
+  }
+
   return (
     <div className="task-form-container" onClick={closeForm} role="presentation">
       <div className="task-form" onClick={stopPropagation} role="presentation">
@@ -56,6 +68,7 @@ function TaskForm({ show, setTask }) {
             placeholder="Title: Vaccuum carpet"
             className="form-input"
             maxLength={35}
+            required
           />
           <textarea
             name="description"
@@ -67,7 +80,7 @@ function TaskForm({ show, setTask }) {
           />
           <label htmlFor="taskDate" className="task-date-container">
             Due Date:
-            <input type="date" id="taskDate" className="form-date-selector" />
+            <input name="date" type="date" id="taskDate" className="form-date-selector" onChange={captureDateChange} />
           </label>
           <label htmlFor="form-task-groups-choice" className="form-task-group-container">
             Task Group:

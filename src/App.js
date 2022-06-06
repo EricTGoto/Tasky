@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import TaskForm from './components/TaskForm';
 
 function App() {
-  const [task, setTask] = React.useState([{ taskTitle: 'test 1', taskID: uniqid() }, { taskTitle: 'test 2', taskID: uniqid() }]);
+  const [task, setTask] = React.useState([{ taskTitle: 'test 1', taskID: uniqid(), date: (new Date()).toString() }, { taskTitle: 'test 2', taskID: uniqid(), date: (new Date()).getUTCDay().toString() }]);
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
     taskForm: false,

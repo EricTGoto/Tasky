@@ -65,6 +65,21 @@ function TaskForm({ show, setTask }) {
             className="form-input form-description"
             maxLength={300}
           />
+          <label htmlFor="taskDate" className="task-date-container">
+            Due Date:
+            <input type="date" id="taskDate" className="form-date-selector" />
+          </label>
+          <label htmlFor="form-task-groups-choice" className="form-task-group-container">
+            Task Group:
+            <input list="form-task-groups" id="form-task-groups-choice" />
+          </label>
+          <datalist id="form-task-groups">
+            <option value="Chocolate">Chocolate</option>
+            <option value="Coconut">Coconut</option>
+            <option value="Mint">Mint</option>
+            <option value="Strawberry">Strawberry</option>
+            <option value="Vanilla">Vanilla</option>
+          </datalist>
           <button className="submit-button" type="submit">Submit</button>
         </form>
       </div>

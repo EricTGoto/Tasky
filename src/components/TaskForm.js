@@ -83,6 +83,7 @@ function TaskForm({ show, setTask }) {
             Due Date:
             <input name="date" type="date" id="taskDate" className="form-date-selector" onChange={captureDateChange} />
           </label>
+          <input name="time" type="time" id="taskTime" className="form-time-selector" onChange={captureDateChange} />
           <label htmlFor="form-task-groups-choice" className="form-task-group-container">
             Task Group:
             <input list="form-task-groups" id="form-task-groups-choice" />

@@ -146,6 +146,7 @@ body, #root, .app, .main-elements {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.4);
+    font-family: var(--secondary-font); 
 }
 
 .task-form {
@@ -176,10 +177,9 @@ body, #root, .app, .main-elements {
 }
 
 .task-date-container {
-    font-family: var(--secondary-font); 
     position: absolute;
-    bottom: 40px;
-    left:10px;
+    bottom: 70px;
+    left: 10px;
 }
 
 .form-date-selector {
@@ -190,20 +190,33 @@ body, #root, .app, .main-elements {
     width: 115px;
     margin-left: 20px;
     border-radius: 6px;
-    font-family: 'Open Sans', sans-serif;
     padding: 3px;
+    font-family: inherit;
 }
 
-.form-task-group-container {
-    font-family: 'Open Sans', sans-serif; 
+.form-time-selector {
+    position: absolute;
+    bottom: 40px;
+    left: 104px;
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px blue solid;
+    height: 25px;
+    width: 115px;
+    border-radius: 6px;
+    padding: 3px;
+    font-family: inherit;
+}
+
+.form-task-group-container { 
     position: absolute;
     bottom: 10px;
     left: 10px;
+    font-family: inherit;
 }
 
 #form-task-groups-choice {
     appearance: none;
-    font-family: 'Open Sans', sans-serif;   
     box-sizing: border-box;
     border: 1px blue solid;
     padding: 3px;
@@ -211,6 +224,7 @@ body, #root, .app, .main-elements {
     border-radius: 6px;
     width: 115px;
     height: 23px;
+    font-family: inherit;
 }
 
 .submit-button {

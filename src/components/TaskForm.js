@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import uniqid from 'uniqid';
+import check from '../images/check.svg';
 
 function TaskForm({ show, setTask }) {
   const [taskInput, setTaskInput] = React.useState({
@@ -93,7 +94,7 @@ function TaskForm({ show, setTask }) {
             <option value="Strawberry">Strawberry</option>
             <option value="Vanilla">Vanilla</option>
           </datalist>
-          <button className="submit-button" type="submit">Submit</button>
+          <input className="submit-button" type="image" src={check} alt="Submit Form" />
         </form>
       </div>
     </div>

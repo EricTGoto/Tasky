@@ -215,8 +215,9 @@ body, #root, .app, .main-elements {
 
 .submit-button {
     position: absolute;
-    right: 1px;
-    bottom: 1px;
+    width: 50px;
+    right: 5px;
+    bottom: 5px;
 }
 
 .sidebar {

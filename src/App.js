@@ -13,6 +13,9 @@ function App() {
     taskForm: false,
   });
 
+  // eslint-disable-next-line no-unused-vars
+  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today']);
+
   function deleteTask(event) {
     setTask((prevTask) => prevTask.filter(
       (individualTask) => individualTask.taskID !== event.target.id,
@@ -21,8 +24,13 @@ function App() {
 
   return (
     <div className="app">
-      <TaskForm setShowMenus={setShowMenus} setTask={setTask} show={showMenus.taskForm} />
-      <Sidebar show={showMenus.sidebar} />
+      <TaskForm
+        setShowMenus={setShowMenus}
+        setTask={setTask}
+        show={showMenus.taskForm}
+        taskGroups={taskGroups}
+      />
+      <Sidebar show={showMenus.sidebar} taskGroups={taskGroups} />
       <div className="main-elements">
         <Header setShowMenus={setShowMenus} />
         <Tasks tasks={task} deleteFunction={deleteTask} sidebarShowing={showMenus.sidebar} />

@@ -3,12 +3,16 @@ import React from 'react';
 import uniqid from 'uniqid';
 import check from '../images/check.svg';
 
-function TaskForm({ show, setTask }) {
+function TaskForm({ show, setTask, taskGroups }) {
   const [taskInput, setTaskInput] = React.useState({
     title: '',
     description: '',
     date: '',
+    taskGroup: '',
   });
+
+  // taskGroups keeps track of the task groups. by default we have home
+  // and today. Home displays all tasks and today displays tasks due today
 
   React.useEffect(() => {
     const taskContainer = document.querySelector('.task-form-container');
@@ -31,6 +35,7 @@ function TaskForm({ show, setTask }) {
       taskTitle: taskInput.title,
       taskID: uniqid(),
       date: taskInput.date,
+      category: taskInput.taskGroup,
     });
   }
 
@@ -89,11 +94,9 @@ function TaskForm({ show, setTask }) {
             <input list="form-task-groups" id="form-task-groups-choice" />
           </label>
           <datalist id="form-task-groups">
-            <option value="Chocolate">Chocolate</option>
-            <option value="Coconut">Coconut</option>
-            <option value="Mint">Mint</option>
-            <option value="Strawberry">Strawberry</option>
-            <option value="Vanilla">Vanilla</option>
+            {taskGroups.map((taskGroup) => {
+              return <option value={taskGroup}>{taskGroup}</option>;
+            })}
           </datalist>
           <input className="submit-button" type="image" src={check} alt="Submit Form" />
         </form>

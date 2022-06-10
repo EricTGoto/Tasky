@@ -1,11 +1,14 @@
 import React from 'react';
 
-function Sidebar({ show }) {
+function Sidebar({ show, taskGroups }) {
+  const taskGroupElements = taskGroups.map((taskGroup) => {
+    return (
+      <div className="sidebar-item">{taskGroup}</div>
+    );
+  });
   return (
     <div className={show ? 'sidebar show' : 'sidebar hide'}>
-      <div className="sidebar-item">First Item</div>
-      <div className="sidebar-item">Second Item</div>
-      <div className="sidebar-item">Third Item</div>
+      {taskGroupElements}
     </div>
   );
 }

@@ -14,13 +14,13 @@ function App() {
   const todayFormatted = format(today, 'yyyy-MM-dd');
 
   const [task, setTask] = React.useState([{
-    taskTitle: 'Future task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: 'Donkey',
+    taskTitle: 'Future misc task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: ['misc'],
   },
   {
-    taskTitle: 'Today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: 'Test',
+    taskTitle: 'Today Leisure task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: ['Leisure', 'Today'],
   },
   {
-    taskTitle: 'Another today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: 'Work',
+    taskTitle: 'Today Work Task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: ['Work', 'Today'],
   }]);
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
@@ -30,7 +30,7 @@ function App() {
   // taskGroups keeps track of the task groups. by default we have home
   // and today. Home displays all tasks and today displays tasks due today
   // eslint-disable-next-line no-unused-vars
-  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today', 'Test']);
+  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today', 'Leisure']);
 
   const [selectedGroup, setSelectedGroup] = React.useState('Home');
 

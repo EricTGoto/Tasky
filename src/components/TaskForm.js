@@ -35,7 +35,7 @@ function TaskForm({ show, setTask, taskGroups }) {
       taskID: uniqid(),
       dateString: taskInput.date,
       timeString: taskInput.time,
-      taskGroup: taskInput.taskGroup,
+      taskGroup: [taskInput.taskGroup],
     });
   }
 

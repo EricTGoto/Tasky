@@ -1,6 +1,7 @@
 import React from 'react';
 import trash from '../images/trash.svg';
 import edit from '../images/edit.svg';
+import Date from './DateTime';
 
 function Tasks({ tasks, deleteFunction, sidebarShowing }) {
   const [editable, setEditable] = React.useState('false');
@@ -29,7 +30,7 @@ function Tasks({ tasks, deleteFunction, sidebarShowing }) {
       <div key={task.taskID} className="task">
         <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
         <div className="task-right">
-          <p className="task-date">{task.date}</p>
+          <Date date={task.dateString} time={task.timeString} />
           <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
           <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
         </div>

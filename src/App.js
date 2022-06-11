@@ -1,18 +1,31 @@
 import React from 'react';
 import './style.css';
 import uniqid from 'uniqid';
+import { format } from 'date-fns';
 import Tasks from './components/Tasks';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import TaskForm from './components/TaskForm';
 
 function App() {
-  const [task, setTask] = React.useState([{ taskTitle: 'test 1', taskID: uniqid(), date: (new Date()).toString() }, { taskTitle: 'test 2', taskID: uniqid(), date: (new Date()).getUTCDay().toString() }]);
+  const futureDate = new Date(2057, 5, 4);
+  const futureDateFormatted = format(futureDate, 'yyyy-MM-dd');
+  const today = new Date();
+  const todayFormatted = format(today, 'yyyy-MM-dd');
+
+  const [task, setTask] = React.useState([{
+    taskTitle: 'Future task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14',
+  },
+  {
+    taskTitle: 'Today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52',
+  }]);
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
     taskForm: false,
   });
 
+  // taskGroups keeps track of the task groups. by default we have home
+  // and today. Home displays all tasks and today displays tasks due today
   // eslint-disable-next-line no-unused-vars
   const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today']);
 

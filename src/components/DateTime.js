@@ -6,7 +6,7 @@ import { isItToday } from '../utils/DateUtils';
 // want to display it like June 5, 2022, or just the time if the task is due today
 function DateTime({ date, time }) {
   return (
-    <div>{isItToday(date) ? time : date}</div>
+    <div className="task-date">{isItToday(date) ? time : date}</div>
   );
 }
 

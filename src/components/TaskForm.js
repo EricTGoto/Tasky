@@ -32,7 +32,7 @@ function TaskForm({ show, setTask, taskGroups }) {
   function createTask() {
     const additionalGroups = [];
 
-    if (isItToday(taskInput.dateString)) {
+    if (isItToday(taskInput.date)) {
       additionalGroups.push('Today');
     }
 
@@ -83,7 +83,7 @@ function TaskForm({ show, setTask, taskGroups }) {
           />
           <label htmlFor="taskDate" className="task-date-container">
             Due Date:
-            <input name="date" type="date" id="taskDate" className="form-date-selector" onChange={handleChange} />
+            <input name="date" type="date" id="taskDate" className="form-date-selector" onChange={handleChange} value={taskInput.date} />
           </label>
           <input name="time" type="time" id="taskTime" className="form-time-selector" onChange={handleChange} />
           <label htmlFor="form-task-groups-choice" className="form-task-group-container">

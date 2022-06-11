@@ -30,9 +30,9 @@ function App() {
   // taskGroups keeps track of the task groups. by default we have home
   // and today. Home displays all tasks and today displays tasks due today
   // eslint-disable-next-line no-unused-vars
-  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today', 'Leisure']);
+  const [taskGroups, setTaskGroups] = React.useState(['All', 'Today', 'Leisure']);
 
-  const [selectedGroup, setSelectedGroup] = React.useState('Home');
+  const [selectedGroup, setSelectedGroup] = React.useState('All');
 
   function deleteTask(event) {
     setTask((prevTask) => prevTask.filter(

@@ -28,7 +28,7 @@ function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
 
   const taskList = function taskList() {
     let filteredTasks = [...tasks];
-    if (selectedGroup !== 'Home') {
+    if (selectedGroup !== 'All') {
       filteredTasks = tasks.filter((task) => task.taskGroup.includes(selectedGroup));
     }
     filteredTasks = filteredTasks.map((task) => {

@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import React from 'react';
 import trash from '../images/trash.svg';
 import edit from '../images/edit.svg';
 import Date from './DateTime';
 
-function Tasks({ tasks, deleteFunction, sidebarShowing }) {
+function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
   const [editable, setEditable] = React.useState('false');
 
   function handleEdit() {
@@ -25,22 +26,30 @@ function Tasks({ tasks, deleteFunction, sidebarShowing }) {
     taskContainer.style.gridColumn = taskContainerSize;
   }, [sidebarShowing]);
 
-  const taskList = tasks.map((task) => {
-    return (
-      <div key={task.taskID} className="task">
-        <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
-        <div className="task-right">
-          <Date date={task.dateString} time={task.timeString} />
-          <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
-          <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
+  const taskList = function taskList() {
+    let filteredTasks = [...tasks];
+    if (selectedGroup !== 'Home') {
+      filteredTasks = tasks.filter((task) => task.taskGroup === selectedGroup);
+    }
+    filteredTasks = filteredTasks.map((task) => {
+      return (
+        <div key={task.taskID} className="task">
+          <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
+          <div className="task-right">
+            <Date date={task.dateString} time={task.timeString} />
+            <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
+            <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
+    return filteredTasks;
+  };
+
   return (
     <div className="task-container">
       <div className="tasks">
-        {taskList}
+        {taskList()}
       </div>
     </div>
   );

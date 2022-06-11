@@ -14,10 +14,13 @@ function App() {
   const todayFormatted = format(today, 'yyyy-MM-dd');
 
   const [task, setTask] = React.useState([{
-    taskTitle: 'Future task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14',
+    taskTitle: 'Future task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: 'Donkey',
   },
   {
-    taskTitle: 'Today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52',
+    taskTitle: 'Today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: 'Test',
+  },
+  {
+    taskTitle: 'Another today task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: 'Work',
   }]);
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
@@ -27,7 +30,9 @@ function App() {
   // taskGroups keeps track of the task groups. by default we have home
   // and today. Home displays all tasks and today displays tasks due today
   // eslint-disable-next-line no-unused-vars
-  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today']);
+  const [taskGroups, setTaskGroups] = React.useState(['Home', 'Today', 'Test']);
+
+  const [selectedGroup, setSelectedGroup] = React.useState('Home');
 
   function deleteTask(event) {
     setTask((prevTask) => prevTask.filter(
@@ -43,10 +48,19 @@ function App() {
         show={showMenus.taskForm}
         taskGroups={taskGroups}
       />
-      <Sidebar show={showMenus.sidebar} taskGroups={taskGroups} />
+      <Sidebar
+        show={showMenus.sidebar}
+        taskGroups={taskGroups}
+        setSelectedGroup={setSelectedGroup}
+      />
       <div className="main-elements">
         <Header setShowMenus={setShowMenus} />
-        <Tasks tasks={task} deleteFunction={deleteTask} sidebarShowing={showMenus.sidebar} />
+        <Tasks
+          selectedGroup={selectedGroup}
+          tasks={task}
+          deleteFunction={deleteTask}
+          sidebarShowing={showMenus.sidebar}
+        />
       </div>
     </div>
   );

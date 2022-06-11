@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Sidebar({ show, taskGroups }) {
+function Sidebar({ show, taskGroups, setSelectedGroup }) {
+  function filterTasks(selectedGroup) {
+    setSelectedGroup(selectedGroup);
+  }
+
   const taskGroupElements = taskGroups.map((taskGroup) => {
     return (
-      <div className="sidebar-item">{taskGroup}</div>
+      <div className="sidebar-item" onClick={() => filterTasks(taskGroup)} role="presentation">{taskGroup}</div>
     );
   });
   return (

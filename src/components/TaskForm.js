@@ -88,7 +88,7 @@ function TaskForm({ show, setTask, taskGroups }) {
           <input name="time" type="time" id="taskTime" className="form-time-selector" onChange={handleChange} />
           <label htmlFor="form-task-groups-choice" className="form-task-group-container">
             Task Group:
-            <input list="form-task-groups" id="form-task-groups-choice" />
+            <input name="taskGroup" list="form-task-groups" id="form-task-groups-choice" onChange={handleChange} />
           </label>
           <datalist id="form-task-groups">
             {taskGroups.map((taskGroup) => {

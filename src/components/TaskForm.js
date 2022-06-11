@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import uniqid from 'uniqid';
+import { isItToday } from '../utils/DateUtils';
 import check from '../images/check.svg';
 
 function TaskForm({ show, setTask, taskGroups }) {
@@ -29,13 +30,19 @@ function TaskForm({ show, setTask, taskGroups }) {
 
   // creates an individual task, remember to modify this when the task data structure changes
   function createTask() {
+    const additionalGroups = [];
+
+    if (isItToday(taskInput.dateString)) {
+      additionalGroups.push('Today');
+    }
+
     console.log(taskInput);
     return ({
       taskTitle: taskInput.title,
       taskID: uniqid(),
       dateString: taskInput.date,
       timeString: taskInput.time,
-      taskGroup: [taskInput.taskGroup],
+      taskGroup: [...additionalGroups, taskInput.taskGroup],
     });
   }
 

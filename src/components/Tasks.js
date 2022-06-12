@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import trash from '../images/trash.svg';
 import edit from '../images/edit.svg';

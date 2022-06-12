@@ -13,51 +13,61 @@ function App() {
   const today = new Date();
   const todayFormatted = format(today, 'yyyy-MM-dd');
 
-  const [task, setTask] = React.useState([{
-    taskTitle: 'Future misc task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: ['misc'],
-  },
-  {
-    taskTitle: 'Today Leisure task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: ['Leisure', 'Today'],
-  },
-  {
-    taskTitle: 'Today Work Task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: ['Work', 'Today'],
-  }]);
+  // taskInfo contains all tasks and taskGroups. These two are kept in the same
+  // state variable as they are often updated together. The default taskGroups
+  // are All and today. All displays all tasks and today displays tasks due today
+  const [taskInfo, setTaskInfo] = React.useState({
+    tasks: [
+      {
+        taskTitle: 'Future misc task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: ['www'],
+      },
+      {
+        taskTitle: 'Today Leisure task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: ['Leisure', 'Today'],
+      },
+      {
+        taskTitle: 'Today Work Task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: ['Work', 'Today'],
+      }],
+    taskGroups: ['All', 'Today', 'Leisure'],
+  });
   const [showMenus, setShowMenus] = React.useState({
     sidebar: true,
     taskForm: false,
   });
 
-  // taskGroups keeps track of the task groups. by default we have home
-  // and today. Home displays all tasks and today displays tasks due today
-  // eslint-disable-next-line no-unused-vars
-  const [taskGroups, setTaskGroups] = React.useState(['All', 'Today', 'Leisure']);
-
   const [selectedGroup, setSelectedGroup] = React.useState('All');
 
+  // also need to delete group if last task of a group gets deleted
   function deleteTask(event) {
-    setTask((prevTask) => prevTask.filter(
-      (individualTask) => individualTask.taskID !== event.target.id,
-    ));
+    setTaskInfo((prevTaskInfo) => {
+      const updatedTasks = prevTaskInfo.tasks.filter(
+        (individualTask) => individualTask.taskID !== event.target.id,
+      );
+      return {
+        ...prevTaskInfo,
+        tasks: updatedTasks,
+      };
+    });
   }
 
   return (
     <div className="app">
       <TaskForm
         setShowMenus={setShowMenus}
-        setTask={setTask}
+        setTask={setTaskInfo}
         show={showMenus.taskForm}
-        taskGroups={taskGroups}
+        taskGroups={taskInfo.taskGroups}
+        setTaskGroups={taskInfo.setTaskInfo}
       />
       <Sidebar
         show={showMenus.sidebar}
-        taskGroups={taskGroups}
+        taskGroups={taskInfo.taskGroups}
         setSelectedGroup={setSelectedGroup}
       />
       <div className="main-elements">
         <Header setShowMenus={setShowMenus} />
         <Tasks
           selectedGroup={selectedGroup}
-          tasks={task}
+          tasks={taskInfo.tasks}
           deleteFunction={deleteTask}
           sidebarShowing={showMenus.sidebar}
         />

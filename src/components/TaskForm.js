@@ -48,7 +48,17 @@ function TaskForm({ show, setTask, taskGroups }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setTask((prevTask) => [...prevTask, createTask()]);
+
+    // check if the task added was under a new group, if it is add
+    let newTaskGroup;
+    if (!taskGroups.includes(taskInput.taskGroup)) newTaskGroup = taskInput.taskGroup;
+    setTask((prevTaskInfo) => {
+      return ({
+        ...prevTaskInfo,
+        tasks: [...prevTaskInfo.tasks, createTask()],
+        taskGroups: [...prevTaskInfo.taskGroups, newTaskGroup],
+      });
+    });
   }
 
   function closeForm(e) {

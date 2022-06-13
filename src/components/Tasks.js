@@ -39,6 +39,7 @@ function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
             <Date date={task.dateString} time={task.timeString} />
           </div>
           <div className="task-right">
+            <div className="task-group">{task.taskGroup[0]}</div>
             <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
             <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
           </div>

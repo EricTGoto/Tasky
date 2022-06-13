@@ -23,16 +23,16 @@ function Header({ setShowMenus }) {
   }
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-left">
-        <img className="hamburger" src={hamburger} alt="icon" onClick={toggleSidebar} role="presentation" />
+        <input type="image" className="hamburger" src={hamburger} alt="icon" onClick={toggleSidebar} />
         <span className="tasky">Tasky</span>
       </div>
       <div className="header-right">
-        <img className="plus" src={plus} onClick={openForm} role="presentation" alt="new task" />
-        <img className="help" src={help} alt="help" />
+        <input type="image" className="plus" src={plus} onClick={openForm} alt="new task" />
+        <input type="image" className="help" src={help} alt="help" />
       </div>
-    </div>
+    </header>
   );
 }
 

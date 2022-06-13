@@ -5,7 +5,7 @@
 
 body, #root, .app, .main-elements {
     height: 100vh;
-    --main-background-color: cornflowerblue;
+    --main-background-color: #92A8D1;
     --main-font: 'Merriweather', serif;
     --secondary-font: 'Open Sans', sans-serif;
 
@@ -274,7 +274,7 @@ body, #root, .app, .main-elements {
     height: 100vh;
     padding-top: 45px;
     transform: translateX(-200px);
-    background-color: cornflowerblue;
+    background-color: var(--main-background-color);
     font-family: var(--main-font);
     font-weight: 400;
 }
@@ -292,8 +292,10 @@ body, #root, .app, .main-elements {
 .sidebar-item {
     display: flex;
     align-items: center;
-    background-color: cornflowerblue;
-    height: 30px;
+    background-color: var(--main-background-color);
+    height: 40px;
+    width: 100%;
+    border: none;
     padding: 5px;
     font-size: 20px;
 }

@@ -7,13 +7,13 @@ function Sidebar({ show, taskGroups, setSelectedGroup }) {
 
   const taskGroupElements = taskGroups.map((taskGroup) => {
     return (
-      <div className="sidebar-item" onClick={() => filterTasks(taskGroup)} role="presentation">{taskGroup}</div>
+      <button type="button" className="sidebar-item" onClick={() => filterTasks(taskGroup)}>{taskGroup}</button>
     );
   });
   return (
-    <div className={show ? 'sidebar show' : 'sidebar hide'}>
+    <nav className={show ? 'sidebar show' : 'sidebar hide'}>
       {taskGroupElements}
-    </div>
+    </nav>
   );
 }
 

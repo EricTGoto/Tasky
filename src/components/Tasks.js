@@ -50,12 +50,12 @@ function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
   };
 
   return (
-    <div className="task-container">
+    <main className="task-container">
       <TaskGroupTitleBar selectedGroup={selectedGroup} />
       <div className="tasks">
         {taskList()}
       </div>
-    </div>
+    </main>
   );
 }
 

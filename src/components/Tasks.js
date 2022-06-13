@@ -34,9 +34,11 @@ function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
     filteredTasks = filteredTasks.map((task) => {
       return (
         <div key={task.taskID} className="task">
-          <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
-          <div className="task-right">
+          <div className="task-left">
+            <p contentEditable={editable} role="presentation" className="task-title">{task.taskTitle}</p>
             <Date date={task.dateString} time={task.timeString} />
+          </div>
+          <div className="task-right">
             <input type="image" className="task-button" src={edit} onClick={handleEdit} alt="edit" />
             <input type="image" className="task-button" src={trash} id={task.taskID} alt="delete" onClick={deleteFunction} />
           </div>

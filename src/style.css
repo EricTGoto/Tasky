@@ -130,12 +130,16 @@ body, #root, .app, .main-elements {
 .task {
     display: flex;
     height: 50px;
-    justify-content: space-between;
     border-bottom: 1px #D3D3D3 solid;
 }
 
 .task:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.task-left {
+    display: flex;
+    flex-direction: column;
 }
 
 .task-title {
@@ -146,6 +150,7 @@ body, #root, .app, .main-elements {
 .task-right {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 .task-date {

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/tasky/static/css/main.dd19b00a.css",
+    "main.js": "/tasky/static/js/main.5f972faa.js",
+    "index.html": "/tasky/index.html",
+    "static/media/sliders.svg": "/tasky/static/media/sliders.eb247796552609a341f176bd23dc50cb.svg",
+    "static/media/trash.svg": "/tasky/static/media/trash.058ded4e19019f6986cedeffc57585ef.svg",
+    "static/media/edit.svg": "/tasky/static/media/edit.68a5d441d01379e0fdccfc5cd717a8e1.svg",
+    "static/media/help.svg": "/tasky/static/media/help.e69273b57494535ac756a2b6d0c70768.svg",
+    "static/media/menu.svg": "/tasky/static/media/menu.f39a5e538c3ea7f3a8f54a3627aab584.svg",
+    "static/media/plus.svg": "/tasky/static/media/plus.f26709576ec0e56628248b37b1eabe7d.svg",
+    "static/media/check.svg": "/tasky/static/media/check.a6151888542feae6b5840a95a69ed0b8.svg",
+    "main.dd19b00a.css.map": "/tasky/static/css/main.dd19b00a.css.map",
+    "main.5f972faa.js.map": "/tasky/static/js/main.5f972faa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd19b00a.css",
+    "static/js/main.5f972faa.js"
+  ]
+}

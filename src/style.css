@@ -87,27 +87,55 @@ body, #root, .app, .main-elements {
 }
 
 .task-container {
+    margin-top: 50px;
     grid-column: 2;
     grid-row: 2;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr;
+}
+
+.task-group-title-bar {
     display: flex;
-    justify-content: center;
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    font-size: 22px;
+    width: 70%;
     align-items: center;
-    flex-direction: column;
-    border: black 1px solid;
-    height: 100%;
-    font-family: 'Open Sans', sans-serif;
+}
+
+.sortingButtonLabel {
+    margin-left: auto;
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    gap: 5px;
+    align-items: center;
+}
+
+.sortingButton {
+    width: 20px;
 }
 
 .tasks {
     height: 80%;
     width: 70%;
-    border: black 1px solid;    
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;  
 }
 
 .task {
     display: flex;
+    height: 50px;
     justify-content: space-between;
-    border: black 1px solid;
+    border-bottom: 1px #D3D3D3 solid;
+}
+
+.task:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .task-title {

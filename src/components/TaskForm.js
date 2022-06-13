@@ -52,6 +52,7 @@ function TaskForm({ show, setTask, taskGroups }) {
     // check if the task added was under a new group, if it is add
     let newTaskGroup;
     if (!taskGroups.includes(taskInput.taskGroup)) newTaskGroup = taskInput.taskGroup;
+
     setTask((prevTaskInfo) => {
       return ({
         ...prevTaskInfo,

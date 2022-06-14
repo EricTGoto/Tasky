@@ -4,7 +4,7 @@ import edit from '../images/edit.svg';
 import Date from './DateTime';
 import TaskGroupTitleBar from './TaskGroupTitleBar';
 
-function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
+function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing, setTaskInfo }) {
   const [editable, setEditable] = React.useState('false');
 
   function handleEdit() {
@@ -51,7 +51,10 @@ function Tasks({ selectedGroup, tasks, deleteFunction, sidebarShowing }) {
 
   return (
     <main className="task-container">
-      <TaskGroupTitleBar selectedGroup={selectedGroup} />
+      <TaskGroupTitleBar
+        selectedGroup={selectedGroup}
+        setTaskInfo={setTaskInfo}
+      />
       <div className="tasks">
         {taskList()}
       </div>

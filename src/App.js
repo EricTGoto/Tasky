@@ -68,8 +68,9 @@ function App() {
         <Tasks
           selectedGroup={selectedGroup}
           tasks={taskInfo.tasks}
-          deleteFunction={deleteTask}
           sidebarShowing={showMenus.sidebar}
+          deleteFunction={deleteTask}
+          setTaskInfo={setTaskInfo}
         />
       </div>
     </div>

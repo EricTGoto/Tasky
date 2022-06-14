@@ -9,5 +9,5 @@ My first React project. Originally, the project was going to be quite small, but
 Things I used to make this project:
 
 - React
-- ESLint, date-fns
+- ESLint, date-fns, gh-pages
 - Git, Github

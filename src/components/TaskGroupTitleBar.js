@@ -1,6 +1,6 @@
 import React from 'react';
 import sliders from '../images/sliders.svg';
-import { sortDatesByAscending } from '../utils/DateUtils';
+import { sortDatesByAscending, sortDatesByDescending } from '../utils/DateUtils';
 
 // eslint-disable-next-line no-unused-vars
 function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
@@ -8,18 +8,24 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
 
   }
 
-  function sortTasks(e) {
+  function sortTasks(sort) {
+    setTaskInfo((prevTaskInfo) => {
+      const copy = prevTaskInfo.tasks;
+      return ({
+        tasks: sort(copy),
+        taskGroups: [...prevTaskInfo.taskGroups],
+      });
+    });
+  }
+
+  function selectHandler(e) {
     const { value } = e.target;
     const [category, sortOrder] = value.split(' ');
 
     if (category === 'date' && sortOrder === 'ascending') {
-      setTaskInfo((prevTaskInfo) => {
-        const copy = prevTaskInfo.tasks;
-        return ({
-          tasks: sortDatesByAscending(copy),
-          taskGroups: [...prevTaskInfo.taskGroups],
-        });
-      });
+      sortTasks(sortDatesByAscending);
+    } else if (category === 'date' && sortOrder === 'descending') {
+      sortTasks(sortDatesByDescending);
     }
   }
 
@@ -37,7 +43,7 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
         />
         Sort By
       </label>
-      <select className="taskSorter" onChange={sortTasks}>
+      <select className="taskSorter" onChange={selectHandler}>
         <option value="group ascending">Task Group (A-Z)</option>
         <option value="group descending">Task Group (Z-A)</option>
         <option value="date ascending" selected>Due Date (Newest)</option>

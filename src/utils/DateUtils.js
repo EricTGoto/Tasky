@@ -1,4 +1,4 @@
-import { isThisWeek, isToday, parse, compareAsc } from 'date-fns';
+import { isThisWeek, isToday, parse, compareAsc, compareDesc } from 'date-fns';
 
 function isItToday(date) {
   const parsedDate = parse(date, 'yyyy-MM-dd', new Date());
@@ -16,14 +16,24 @@ function parseDateAndTime(dateString, timeString) {
   return parsed;
 }
 
-const sortHelper = function sortHelper(a, b) {
+const sortHelperAsc = function sortHelperAsc(a, b) {
   const parsedA = parseDateAndTime(a.dateString, a.timeString);
   const parsedB = parseDateAndTime(b.dateString, b.timeString);
   return compareAsc(parsedA, parsedB);
 };
 
+const sortHelperDesc = function sortHelperDesc(a, b) {
+  const parsedA = parseDateAndTime(a.dateString, a.timeString);
+  const parsedB = parseDateAndTime(b.dateString, b.timeString);
+  return compareDesc(parsedA, parsedB);
+};
+
 function sortDatesByAscending(dates) {
-  return dates.sort(sortHelper);
+  return dates.sort(sortHelperAsc);
 }
 
-export { isItToday, isItThisWeek, sortDatesByAscending };
+function sortDatesByDescending(dates) {
+  return dates.sort(sortHelperDesc);
+}
+
+export { isItToday, isItThisWeek, sortDatesByAscending, sortDatesByDescending };

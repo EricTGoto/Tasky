@@ -1,7 +1,6 @@
 import React from 'react';
 import sliders from '../images/sliders.svg';
-import { sortDatesByAscending, sortDatesByDescending } from '../utils/DateUtils';
-import { sortByTaskGroupAscending, sortByTaskGroupsDescending } from '../utils/Sorts';
+import { sortByTaskGroupAscending, sortByTaskGroupsDescending, sortDatesByAscending, sortDatesByDescending } from '../utils/Sorts';
 
 // eslint-disable-next-line no-unused-vars
 function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {

@@ -19,13 +19,22 @@ function App() {
   const [taskInfo, setTaskInfo] = React.useState({
     tasks: [
       {
-        taskTitle: 'Future misc task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: ['Random'],
+        taskTitle: 'Future random task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '16:14', taskGroup: ['Random'],
       },
       {
-        taskTitle: 'Today Leisure task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:52', taskGroup: ['Leisure', 'Today'],
+        taskTitle: 'Today Leisure task', taskID: uniqid(), dateString: todayFormatted, timeString: '08:52', taskGroup: ['Leisure', 'Today'],
       },
       {
         taskTitle: 'Today Work Task', taskID: uniqid(), dateString: todayFormatted, timeString: '11:55', taskGroup: ['Work', 'Today'],
+      },
+      {
+        taskTitle: 'Future Work Task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '09:55', taskGroup: ['Work', 'Today'],
+      },
+      {
+        taskTitle: 'Today Random Task', taskID: uniqid(), dateString: todayFormatted, timeString: '13:55', taskGroup: ['Random', 'Today'],
+      },
+      {
+        taskTitle: 'Future Leisure Task', taskID: uniqid(), dateString: futureDateFormatted, timeString: '18:55', taskGroup: ['Leisure', 'Today'],
       }],
     taskGroups: ['All', 'Today', 'Leisure'],
   });

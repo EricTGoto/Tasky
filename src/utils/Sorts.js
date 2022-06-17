@@ -4,6 +4,8 @@ import { parseDateAndTime } from './DateUtils';
 const sortHelperTaskAsc = function sortHelperAsc(taskA, taskB) {
   const parsedA = parseDateAndTime(taskA.dateString, taskA.timeString);
   const parsedB = parseDateAndTime(taskB.dateString, taskB.timeString);
+  // breaks tie with time so that tasks are sorted by groups and within the
+  // groups, the tasks with that are due sooner are at the top
   return taskA.taskGroup[0].localeCompare(taskB.taskGroup[0]) || compareAsc(parsedA, parsedB);
 };
 
@@ -33,17 +35,17 @@ const sortHelperTimeDesc = function sortHelperDesc(a, b) {
   return compareDesc(parsedA, parsedB);
 };
 
-function sortDatesByAscending(dates) {
+function sortByDatesAscending(dates) {
   return dates.sort(sortHelperTimeAsc);
 }
 
-function sortDatesByDescending(dates) {
+function sortByDatesDescending(dates) {
   return dates.sort(sortHelperTimeDesc);
 }
 
 export {
   sortByTaskGroupAscending,
   sortByTaskGroupsDescending,
-  sortDatesByAscending,
-  sortDatesByDescending,
+  sortByDatesAscending,
+  sortByDatesDescending,
 };

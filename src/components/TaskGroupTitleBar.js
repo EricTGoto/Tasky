@@ -1,6 +1,6 @@
 import React from 'react';
 import sliders from '../images/sliders.svg';
-import { sortByTaskGroupAscending, sortByTaskGroupsDescending, sortDatesByAscending, sortDatesByDescending } from '../utils/Sorts';
+import { sortByTaskGroupAscending, sortByTaskGroupsDescending, sortByDatesAscending, sortByDatesDescending } from '../utils/Sorts';
 
 // eslint-disable-next-line no-unused-vars
 function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
@@ -23,9 +23,9 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
     const [category, sortOrder] = value.split(' ');
 
     if (category === 'date' && sortOrder === 'ascending') {
-      sortTasks(sortDatesByAscending);
+      sortTasks(sortByDatesAscending);
     } else if (category === 'date' && sortOrder === 'descending') {
-      sortTasks(sortDatesByDescending);
+      sortTasks(sortByDatesDescending);
     } else if (category === 'group' && sortOrder === 'ascending') {
       sortTasks(sortByTaskGroupAscending);
     } else {

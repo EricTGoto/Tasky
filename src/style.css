@@ -6,12 +6,14 @@
 body, #root, .app, .main-elements {
     height: 100vh;
     --main-background-color: #92A8D1;
+    --content-background-color: #fbfbfb;
     --main-font: 'Merriweather', serif;
     --secondary-font: 'Open Sans', sans-serif;
 
 }
 
 .main-elements {
+    background-color: var(--content-background-color);
     display: grid;
     grid-template-rows: 45px 1fr;
     grid-template-columns: 200px 1fr;
@@ -98,6 +100,7 @@ body, #root, .app, .main-elements {
 
 .task-group-title-bar {
     display: flex;
+    position: relative;
     font-family: var(--secondary-font);
     font-weight: 600;
     font-size: 22px;
@@ -106,6 +109,8 @@ body, #root, .app, .main-elements {
 }
 
 .sortingButtonLabel {
+    position: absolute;
+    right: 0px;
     margin-left: auto;
     display: flex;
     font-size: 16px;
@@ -117,6 +122,34 @@ body, #root, .app, .main-elements {
 .sortingButton {
     width: 20px;
 }
+
+.taskSorter {
+    position: absolute;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: #fbfbfb;
+    top: 37px;
+    right: -50px;
+    border: 1px black solid;
+}
+
+.sorter-option {
+    padding: 5px;
+}
+
+.sorter-option:hover,
+.sorter-option:checked {
+    background-color: #EEEEEE;
+}
+/* select, option {
+    overflow: hidden;
+    appearance: none;
+    font-family: var(--secondary-font);
+    color: #333;
+    background-color: #fbfbfb;
+} */
+
 
 .tasks {
     height: 80%;

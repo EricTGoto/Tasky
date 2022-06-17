@@ -47,11 +47,11 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
         />
         Sort By
       </label>
-      <select className="taskSorter" onChange={selectHandler}>
-        <option value="group ascending">Task Group (A-Z)</option>
-        <option value="group descending">Task Group (Z-A)</option>
-        <option value="date ascending" selected>Due Date (Newest)</option>
-        <option value="date descending">Due Date (Oldest)</option>
+      <select size={4} className="taskSorter" onChange={selectHandler}>
+        <option className="sorter-option" value="group ascending">Task Group (A-Z)</option>
+        <option className="sorter-option" value="group descending">Task Group (Z-A)</option>
+        <option className="sorter-option" value="date ascending" selected>Due Date (Newest)</option>
+        <option className="sorter-option" value="date descending">Due Date (Oldest)</option>
       </select>
     </div>
   );

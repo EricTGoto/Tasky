@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-expressions */
-import React from 'react';
+import React, { useRef } from 'react';
 import uniqid from 'uniqid';
 import { isItToday } from '../utils/DateUtils';
 import check from '../images/check.svg';
 
-function TaskForm({ show, setTask, taskGroups }) {
+function TaskForm({ show, setShowMenus, setTask, taskGroups }) {
   const [taskInput, setTaskInput] = React.useState({
     title: '',
     description: '',
@@ -12,10 +12,11 @@ function TaskForm({ show, setTask, taskGroups }) {
     time: '',
     taskGroup: '',
   });
+  const taskFormContainer = useRef(null);
 
+  // use useEffect here because we only want this code to run if show changes
   React.useEffect(() => {
-    const taskContainer = document.querySelector('.task-form-container');
-    show ? taskContainer.style.display = 'flex' : taskContainer.style.display = 'none';
+    show ? taskFormContainer.current.style.display = 'flex' : taskFormContainer.current.style.display = 'none';
   }, [show]);
 
   function handleChange(e) {
@@ -36,13 +37,21 @@ function TaskForm({ show, setTask, taskGroups }) {
       additionalGroups.push('Today');
     }
 
-    console.log(taskInput);
     return ({
       taskTitle: taskInput.title,
       taskID: uniqid(),
       dateString: taskInput.date,
       timeString: taskInput.time,
       taskGroup: [taskInput.taskGroup, ...additionalGroups],
+    });
+  }
+
+  function closeForm() {
+    setShowMenus((prevShowMenus) => {
+      return ({
+        ...prevShowMenus,
+        taskForm: !prevShowMenus.taskForm,
+      });
     });
   }
 
@@ -60,11 +69,7 @@ function TaskForm({ show, setTask, taskGroups }) {
         taskGroups: [...prevTaskInfo.taskGroups, newTaskGroup],
       });
     });
-  }
-
-  function closeForm(e) {
-    const formModal = e.target;
-    formModal.style.display = 'none';
+    closeForm();
   }
 
   function stopPropagation(e) {
@@ -72,7 +77,7 @@ function TaskForm({ show, setTask, taskGroups }) {
   }
 
   return (
-    <div className="task-form-container" onClick={closeForm} role="presentation">
+    <div ref={taskFormContainer} className="task-form-container" onClick={closeForm} role="presentation">
       <div className="task-form" onClick={stopPropagation} role="presentation">
         <form onSubmit={handleSubmit}>
           <textarea

@@ -4,14 +4,17 @@ import { sortByTaskGroupAscending, sortByTaskGroupsDescending, sortByDatesAscend
 
 function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
   const dropDownRef = useRef(null);
+  const [dropDownActive, setDropDownActive] = React.useState(false);
+  let dropDownClassName;
+
+  if (dropDownActive) {
+    dropDownClassName = 'taskSorter taskSorter-visible';
+  } else {
+    dropDownClassName = 'taskSorter taskSorter-hidden';
+  }
 
   function showHideDropDown() {
-    const currentStyle = dropDownRef.current.style.display;
-    if (currentStyle === 'none') {
-      dropDownRef.current.style.display = 'block';
-    } else {
-      dropDownRef.current.style.display = 'none';
-    }
+    setDropDownActive(!dropDownActive);
   }
 
   function sortTasks(sort) {
@@ -37,7 +40,7 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
     } else {
       sortTasks(sortByTaskGroupsDescending);
     }
-    dropDownRef.current.style.display = 'none';
+    dropDownRef.current.style.visibility = 'hidden';
   }
 
   return (
@@ -54,7 +57,7 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
         />
         Sort By
       </label>
-      <select ref={dropDownRef} size={4} className="taskSorter" onChange={selectHandler}>
+      <select ref={dropDownRef} size={4} className={dropDownClassName} onChange={selectHandler}>
         <option className="sorter-option" value="group ascending">Task Group (A-Z)</option>
         <option className="sorter-option" value="group descending">Task Group (Z-A)</option>
         <option className="sorter-option" value="date ascending" selected>Due Date (Newest)</option>

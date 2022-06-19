@@ -124,7 +124,7 @@ body, #root, .app, .main-elements {
 }
 
 .taskSorter {
-    display: none;
+    visibility: hidden;
     position: absolute;
     overflow: hidden;
     scrollbar-width: none;
@@ -135,6 +135,14 @@ body, #root, .app, .main-elements {
     border: 1px black solid;
 }
 
+.taskSorter-visible {
+    visibility: visible;
+}
+
+.taskSorter-hidden {
+    visibility: hidden;
+}
+
 .sorter-option {
     padding: 5px;
 }
@@ -143,14 +151,6 @@ body, #root, .app, .main-elements {
 .sorter-option:checked {
     background-color: #EEEEEE;
 }
-/* select, option {
-    overflow: hidden;
-    appearance: none;
-    font-family: var(--secondary-font);
-    color: #333;
-    background-color: #fbfbfb;
-} */
-
 
 .tasks {
     height: 80%;

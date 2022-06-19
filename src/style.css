@@ -124,6 +124,7 @@ body, #root, .app, .main-elements {
 }
 
 .taskSorter {
+    display: none;
     position: absolute;
     overflow: hidden;
     scrollbar-width: none;

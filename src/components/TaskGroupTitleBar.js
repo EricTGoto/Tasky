@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import sliders from '../images/sliders.svg';
 import { sortByTaskGroupAscending, sortByTaskGroupsDescending, sortByDatesAscending, sortByDatesDescending } from '../utils/Sorts';
 
-// eslint-disable-next-line no-unused-vars
 function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
-  function showDropDown() {
+  const dropDownRef = useRef(null);
 
+  function showHideDropDown() {
+    const currentStyle = dropDownRef.current.style.display;
+    if (currentStyle === 'none') {
+      dropDownRef.current.style.display = 'block';
+    } else {
+      dropDownRef.current.style.display = 'none';
+    }
   }
 
   function sortTasks(sort) {
@@ -31,6 +37,7 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
     } else {
       sortTasks(sortByTaskGroupsDescending);
     }
+    dropDownRef.current.style.display = 'none';
   }
 
   return (
@@ -43,11 +50,11 @@ function TaskGroupTitleBar({ selectedGroup, setTaskInfo }) {
           id="sortingButton"
           className="sortingButton"
           alt="Sort Tasks"
-          onClick={showDropDown}
+          onClick={showHideDropDown}
         />
         Sort By
       </label>
-      <select size={4} className="taskSorter" onChange={selectHandler}>
+      <select ref={dropDownRef} size={4} className="taskSorter" onChange={selectHandler}>
         <option className="sorter-option" value="group ascending">Task Group (A-Z)</option>
         <option className="sorter-option" value="group descending">Task Group (Z-A)</option>
         <option className="sorter-option" value="date ascending" selected>Due Date (Newest)</option>
